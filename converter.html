@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video Genie - Audio & Video Converter</title>
+    <meta name="description" content="Convert audio to video and video to audio with Video Genie. Fast, free, and secure conversions.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-img">
+                    <img src="logo-placeholder.png" alt="Video Genie Logo" class="logo-img">
+                </div>
+                <span class="logo-text">Video Genie</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="converter.html" class="nav-link active">Convert</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Premium</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Convert</span> Audio & Video
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your media files with ease. Convert audio to video or video to audio in high quality.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Converter Section -->
+    <section class="converter-section">
+        <div class="container">
+            <!-- Conversion Type Sector -->
+            <div class="conversion-tabs">
+                <button class="tab-btn active" data-tab="video-to-audio" aria-lab="video-to-audio-btn">
+                    <i class="fas fa-video"></i>
+                    Video to Audio
+                </button>
+                <button class="tab-btn" data-tab="audio-to-video" aria-lab="audio-to-video-btn">
+                    <i class="fas fa-music"></i>
+                    Audio to Video
+                </button>
+            </div>
+
+            <!-- Video to Audio Tab -->
+            <div id="video-to-audio" class="tab-content active">
+                <div class="converter-card">
+                    <h2>Convert Video to Audio</h2>
+                    <p>Extract high-quality audio from any video file</p>
+                    
+                    <div class="input-group">
+                        <input type="url" id="videoToAudioUrl" placeholder="https://www.youtube.com/watch?v=..." class="url-input">
+                        <button id="analyzeVideoBtn" class="download-btn" aria-label="analyze-video-btn">
+                            <i class="fas fa-search"></i>
+                            Analyze
+                        </button>
+                    </div>
+                    
+                    <!-- File Upload Option -->
+                    <div class="upload-section">
+                        <div class="upload-divider">
+                            <span>OR</span>
+                        </div>
+                        <div class="file-upload">
+                            <input type="file" id="videoFileInput" accept="video/*" hidden>
+                            <lab for="videoFileInput" class="upload-btn">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Upload Video File
+                            </lab>
+                           <p class="upload-help">Supports MP4, AVI, MOV, WMV and more</p>
+                        </div>
+                    </div>
+
+                    <!-- Video Preview for Audio Extraction -->
+                    <div id="videoToAudioPreview" class="conversion-preview hidden">
+                        <div class="preview-card">
+                            <div class="media-info">
+                                <img id="v2aVideoThumbnail" src="" alt="Video Thumbnail" class="media-thumbnail">
+                                <div class="media-details">
+                                    <h3 id="v2aVideoTitle">Video Title</h3>
+                                    <p id="v2aVideoDuration">Duration: --:--</p>
+                                    <p id="v2aVideoSize">Size: -- MB</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Audio Format Options -->
+                            <div class="format-options">
+                                <h4>Select Audio Format</h4>
+                                <div class="format-grid">
+                                    <button class="format-btn" data-format="mp3" aria-label="mp3-btn">
+                                        <i class="fas fa-music"></i>
+                                        MP3
+                                    </button>
+                                    <button class="format-btn" data-format="wav" aria-label="wav-btn">
+                                        <i class="fas fa-music"></i>
+                                        WAV
+                                    </button>
+                                    <button class="format-btn" data-format="aac" aria-label="aac-btn">
+                                        <i class="fas fa-music"></i>
+                                        AAC
+                                    </button>
+                                    <button class="format-btn" data-format="flac" aria-label="flac-btn">
+                                        <i class="fas fa-music"></i>
+                                        FLAC
+                                    </button>
+                                </div>
+                                
+                                <!-- Quality Selection -->
+                                <div class="quality-selection">
+                                    <h4>Audio Quality</h4>
+                                    <select id="audioQuality" class="quality-select">
+                                        <option value="128">128 kbps (Standard)</option>
+                                        <option value="192">192 kbps (Good)</option>
+                                        <option value="256">256 kbps (High)</option>
+                                        <option value="320">320 kbps (Premium)</option>
+                                    </select>
+                                </div>
+                                
+                                <button id="convertToAudioBtn" class="convert-btn" aria-label="convert-to-audio-btn">
+                                    <i class="fas fa-magic"></i>
+                                    Convert to Audio
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Space -->
+    <section class="ad-section">
+        <div class="container">
+            <div class="ad-placeholder">
+                <!-- Monetag/Adsense Ad Space -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+                         crossorigin="anonymous"></script>
+                    <ins class="adsbygoogle"
+                        style="display:block"
+                        data-ad-client="ca-pub-XXXXXXXXXX"
+                        data-ad-slot="XXXXXXXXXX"
+                        data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
+            <!-- Audio to Video Tab -->
+            <div id="audio-to-video" class="tab-content">
+                <div class="converter-card">
+                    <h2>Convert Audio to Video</h2>
+                    <p>Create video files from your audio with custom backgrounds</p>
+                    
+                    <div class="input-group">
+                        <input type="url" id="audioToVideoUrl" placeholder="https://soundcloud.com/..." class="url-input">
+                        <button id="analyzeAudioBtn" class="download-btn" aria-label="analyze-audio-btn">
+                            <i class="fas fa-search"></i>
+                            Analyze
+                        </button>
+                    </div>
+                    
+                    <!-- File Upload Option -->
+                    <div class="upload-section">
+                        <div class="upload-divider">
+                            <span>OR</span>
+                        </div>
+                        <div class="file-upload">
+                            <input type="file" id="audioFileInput" accept="audio/*" hidden>
+                            <label for="audioFileInput" class="upload-btn">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                Upload Audio File
+                            </label>
+                            <p class="upload-help">Supports MP3, WAV, AAC, FLAC and more</p>
+                        </div>
+                        <p class="upload-help">Note: Video background options and higher resolutions are available for premium users.</p>
+                    </div>
+
+                    <!-- Audio Preview for Video Creation -->
+                    <div id="audioToVideoPreview" class="conversion-preview hidden">
+                        <div class="preview-card">
+                            <div class="media-info">
+                                <div class="audio-thumbnail">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="media-details">
+                                    <h3 id="a2vAudioTitle">Audio Title</h3>
+                                    <p id="a2vAudioDuration">Duration: --:--</p>
+                                    <p id="a2vAudioSize">Size: -- MB</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Video Background Options -->
+                            <div class="background-options">
+                                <h4>Select Video Background</h4>
+                                <div class="background-grid">
+                                    <div class="background-option" data-bg="waveform">
+                                        <div class="bg-preview waveform-bg"></div>
+                                        <span>Audio Waveform</span>
+                                    </div>
+                                    <div class="background-option" data-bg="spectrum">
+                                        <div class="bg-preview spectrum-bg"></div>
+                                        <span>Spectrum Analyzer</span>
+                                    </div>
+                                    <div class="background-option" data-bg="solid">
+                                        <div class="bg-preview solid-bg"></div>
+                                        <span>Solid Color</span>
+                                    </div>
+                                    <div class="background-option" data-bg="gradient">
+                                        <div class="bg-preview gradient-bg"></div>
+                                        <span>Gradient</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Video Format Options -->
+                                <div class="format-options">
+                                    <h4>Video Format & Quality</h4>
+                                    <div class="format-quality-row">
+                                        <select id="videoFormat" class="format-select">
+                                            <option value="mp4">MP4</option>
+                                            <option value="avi">AVI</option>
+                                            <option value="mov">MOV</option>
+                                            <option value="webm">WebM</option>
+                                        </select>
+                                        <select id="videoQuality" class="quality-select">
+                                            <option value="360p">360p (Free)</option>
+                                            <option value="480p">480p (premium)</option>
+                                            <option value="720p">720p (Premium)</option>
+                                            <option value="1080p">1080p (Premium)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <button id="convertToVideoBtn" class="convert-btn" aria-label="convert-to-video-btn">
+                                    <i class="fas fa-magic"></i>
+                                    Convert to Video
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion Progress -->
+            <div id="conversionProgress" class="conversion-progress hidden">
+                <div class="progress-card">
+                    <h3>Converting...</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="progressText">0% Complete</p>
+                </div>
+            </div>
+
+            <!-- Conversion Result -->
+            <div id="conversionResult" class="conversion-result hidden">
+                <div class="result-card">
+                    <div class="result-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Conversion Complete!</h3>
+                    <p>Your file has been successfully converted.</p>
+                    <div class="result-actions">
+                        <button id="downloadResultBtn" class="download-result-btn" aria-label="download-file-btn">
+                            <i class="fas fa-download"></i>
+                            Download File
+                        </button>
+                        <button id="convertAnotherBtn" class="btn-secondary" aria-label="convert-another-btn">
+                            Convert Another
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space -->
+    <section class="ad-section">
+        <div class="container">
+            <div class="ad-placeholder">
+                <!-- Replace ad-banner div with -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX"
+                    crossorigin="anonymous">
+                </script>
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-XXXXXXXXXX"
+                    data-ad-slot="XXXXXXXXXX"
+                    data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo-placeholder.png" alt="Video Genie Logo" class="logo-img">
+                        <span class="logo-text">Video Genie</span>
+                    </div>
+                    <p>Download videos from any platform, fast and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Download</a></li>
+                        <li><a href="converter.html">Convert</a></li>
+                        <li><a href="pricing.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="pricing.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Video Genie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

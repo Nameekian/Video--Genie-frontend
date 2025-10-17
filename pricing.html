@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video Genie - Premium Plans</title>
+    <meta name="description" content="Unlock premium features with Video Genie. Download HD videos and enjoy unlimited conversions.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-img">
+                    <img src="logo-placeholder.png" alt="Video Genie Logo" class="logo-img">
+                </div>
+                <span class="logo-text">Video Genie</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="converter.html" class="nav-link">Convert</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link active">Premium</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Unlock <span class="gradient-text">Premium</span> Features
+                </h1>
+                <p class="hero-subtitle">
+                    Get access to HD downloads, unlimited conversions, and ad-free experience.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+                <span class="billing-label">Monthly</span>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="billingToggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="billing-label">Yearly <span class="save-badge">Save 20%</span></span>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-grid">
+                <!-- Free Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Free</h3>
+                        <div class="plan-price">
+                            <span class="currency">₦</span>
+                            <span class="amount">0</span>
+                            <span class="period">/month</span>
+                        </div>
+                        <p class="plan-description">Perfect for casual users</p>
+                    </div>
+                    <hr class="line">
+                    <p class="font-bold">Download for Free:</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Download up to 360p quality</li>
+                        <li><i class="fas fa-check"></i> 5 downloads per day</li>
+                        <li><i class="fas fa-check"></i> Basic audio conversion</li>
+                        <li><i class="fas fa-check"></i> Standard support</li>
+                        <li class="disabled"><i class="fas fa-times"></i> HD downloads (480p, 720p, 1080p)</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Unlimited downloads</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Ad-free experience</li>
+                    </ul>
+                    <button class="plan-btn current-plan" disabled aria-label="current-plan-btn">Current Plan</button>
+                </div>
+
+                <!-- Premium Monthly Plan -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3 class="plan-name">Premium</h3>
+                        <div class="plan-price">
+                            <span class="currency">₦</span>
+                            <span class="amount monthly-price">3,600</span>
+                            <span class="amount yearly-price hidden">2,900</span>
+                            <span class="period monthly-period">/month</span>
+                            <span class="period yearly-period hidden">/month</span>
+                        </div>
+                        <p class="plan-description">For power users and professionals</p>
+                        <div class="yearly-savings hidden">
+                            <span class="original-price">₦3,600/month</span>
+                            <span class="savings">Save ₦8,400/year</span>
+                        </div>
+                    </div>
+                    <hr class="line">
+                    <p class="font-bold">Everything in Free, plus:</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> Download up to 1080p quality</li>
+                        <li><i class="fas fa-check"></i> Unlimited downloads</li>
+                        <li><i class="fas fa-check"></i> Advanced audio/video conversion</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Ad-free experience</li>
+                        <li><i class="fas fa-check"></i> Batch downloads</li>
+                        <li><i class="fas fa-check"></i> Download history</li>
+                    </ul>
+                    <button class="plan-btn premium-btn" data-plan="premium" aria-label="premium-plan-btn">
+                        <span class="monthly-text">Start Premium - ₦3,600/month</span>
+                        <span class="yearly-text hidden">Start Premium - ₦34,800/year</span>
+                    </button>
+                </div>
+
+                <!-- Pro Plan -->
+                <div class="pricing-card">
+                    <div class="plan-header">
+                        <h3 class="plan-name">Pro</h3>
+                        <div class="plan-price">
+                            <span class="currency">₦</span>
+                            <span class="amount monthly-price">5,000</span>
+                            <span class="amount yearly-price hidden">4,000</span>
+                            <span class="period monthly-period">/month</span>
+                            <span class="period yearly-period hidden">/month</span>
+                        </div>
+                        <p class="plan-description">For businesses and content creators</p>
+                        <div class="yearly-savings hidden">
+                            <span class="original-price">₦5,000/month</span>
+                            <span class="savings">Save ₦12,000/year</span>
+                        </div>
+                    </div>
+                    <hr class="line">
+                    <p class="font-bold">Everything in Premium, plus:</p>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i> 4K downloads</li>
+                        <li><i class="fas fa-check"></i> API access</li>
+                        <li><i class="fas fa-check"></i> White-label option</li>
+                        <li><i class="fas fa-check"></i> Custom branding</li>
+                        <li><i class="fas fa-check"></i> Dedicated support</li>
+                        <li><i class="fas fa-check"></i> Analytics dashboard</li>
+                    </ul>
+                    <button class="plan-btn pro-btn" data-plan="pro" aria-label="pro-plan-btn">
+                        <span class="monthly-text">Start Pro - ₦5,000/month</span>
+                        <span class="yearly-text hidden">Start Pro - ₦48,000/year</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods -->
+    <section class="payment-methods">
+        <div class="container">
+            <h2 class="section-title">Secure Payment Methods</h2>
+            <div class="payment-icons">
+                <div class="payment-icon">
+                    <i class="fab fa-cc-visa"></i>
+                    <span>Visa</span>
+                </div>
+                <div class="payment-icon">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <span>Mastercard</span>
+                </div>
+                <div class="payment-icon">
+                    <i class="fas fa-university"></i>
+                    <span>Bank Transfer</span>
+                </div>
+                <div class="payment-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                    <span>Mobile Money</span>
+                </div>
+            </div>
+            <p class="payment-security">
+                <i class="fas fa-shield-alt"></i>
+                Secured by Paystack - Your payment information is encrypted and secure
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I cancel my subscription anytime?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can cancel your subscription at any time. You'll continue to have access to premium features until the end of your billing period.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What payment methods do you accept?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We accept all major credit/debit cards, bank transfers, and mobile money payments through our secure Paystack integration.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Is there a free trial?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer a generous free plan with basic features. You can upgrade to premium anytime to unlock HD downloads and unlimited access.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Can I download videos in 4K quality?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>4K downloads are available with our Pro plan, subject to the original video quality and platform availability.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>What platforms are supported?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>YouTube, Facebook, Instagram, TikTok, Twitter, and uploaded files.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Is my data safe?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, all files are deleted automatically after 24 hours.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h4>Why do I need Premium?</h4>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Premium users get faster processing, HD downloads, ad-free experience, and unlimited downloads.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-page">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you! Reach out via any of the methods below:</p>
+      <ul>
+        <li>Email: <a href="mailto:ahmadolamide94@gmail.com" class="contact-link">support@videogenie.com</a></li>
+        <li>Phone: <a href="tel:+2348147125233" class="contact-link">+234-814-712-5233</a></li>
+        <li>Address: Lagos, Nigeria</li>
+      </ul>
+    <!--<div class="socials">
+        <span class="facebook socials-icon">
+            <a href="https://facebook.com/videogenie" target="_blank" class="socials-icon">
+                <i class="fab fa-facebook"></i>
+            </a>
+        </span>
+        <span class="instagram socials-icon">
+            <a href="https://instagram.com/videogenie" target="_blank" class="socials-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </span>
+        <span class="twitter socials-icon">
+            <a href="https://twitter.com/videogenie" target="_blank" class="socials-icon">
+                <i class="fab fa-twitter"></i>
+            </a>
+        </span>
+     </div> --> 
+    </div>
+  </section>
+
+    <!-- Payment Modal -->
+    <div id="paymentModal" class="modal hidden">
+        <div class="modal-content payment-modal">
+            <span class="close-modal">&times;</span>
+            <div class="payment-header">
+                <h3>Complete Your Subscription</h3>
+                <div class="selected-plan">
+                    <span id="selectedPlanName">Premium Plan</span>
+                    <span id="selectedPlanPrice">₦3,600/month</span>
+                </div>
+            </div>
+            
+            <form id="paymentForm" class="payment-form">
+                <div class="form-group">
+                    <label for="customerEmail">Email Address</label>
+                    <input type="email" id="customerEmail" required placeholder="your@email.com">
+                </div>
+                <!--<div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" required placeholder="John Doe">
+                </div>
+               <!--<div class="form-group">
+                    <label for="customerPhone">Phone Number</label>
+                    <input type="tel" id="customerPhone" required placeholder="+234 800 000 0000">
+                </div>-->
+                
+                <div class="payment-summary">
+                    <div class="summary-row">
+                        <span>Plan:</span>
+                        <span id="summaryPlan">Premium</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Billing:</span>
+                        <span id="summaryBilling">Monthly</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="summaryTotal">₦3,600</span>
+                    </div>
+                </div>
+                
+                <button type="submit" class="pay-now-btn" aria-label="pay-now-btn">
+                    <i class="fas fa-credit-card"></i>
+                    Pay Now
+                </button>
+            </form>
+            
+            <div class="payment-security-note">
+                <i class="fas fa-lock"></i>
+                Your payment is secured by Paystack
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-img">
+                            <img src="logo-placeholder.png" alt="Video Genie Logo" class="logo-img">
+                        </div>
+                        <span class="logo-text">Video Genie</span>
+                    </div>
+                    <p>Download videos from any platform, fast and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Download</a></li>
+                        <li><a href="converter.html">Convert</a></li>
+                        <li><a href="pricing.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="pricing.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Video Genie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

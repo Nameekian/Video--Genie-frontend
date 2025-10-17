@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Video Genie - Download Videos from Any Platform</title>
+    <meta name="description" content="Download videos from YouTube, Facebook, Instagram, TikTok, Twitter and more. Convert audio to video and video to audio with Video Genie.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-img"><img src="logo-placeholder.png" alt="Video Genie Logo" class="logo-img"></div>
+                <span class="logo-text">Video Genie</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link active">Download</a>
+                </li>
+                <li class="nav-item">
+                    <a href="converter.html" class="nav-link">Convert</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Premium</a>
+                </li>
+                <li class="nav-item auth-item">
+                    <div id="authSection">
+                        <button id="loginBtn" class="login-btn" aria-label="login-with-google-btn">
+                            <i class="fab fa-google"></i>
+                            Sign in with Google
+                        </button>
+                        <div id="userProfile" class="user-profile hidden">
+                            <img id="userAvatar" src="" alt="User Avatar" class="user-avatar">
+                            <div class="user-info">
+                                <span id="userName" class="user-name"></span>
+                                <span id="userPlan" class="user-plan"></span>
+                            </div>
+                            <div class="user-dropdown">
+                                <button class="dropdown-toggle" aria-label="user-menu-btn">
+                                    <i class="fas fa-chevron-down"></i>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="#" id="profileLink">Profile</a>
+                                    <a href="pricing.html" id="upgradeLink">Upgrade</a>
+                                    <button id="logoutBtn" aria-label="logout-btn">Logout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Download Videos from <span class="gradient-text">Any Platform</span>
+                </h1>
+                <p class="hero-subtitle">
+                    YouTube, Facebook, Instagram, TikTok, Twitter and more. Fast, free, and secure video downloads.
+                </p>
+                
+                <!-- Supported Platforms -->
+                <div class="platforms">
+                    <div class="platform-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="platform-icon"><i class="fab fa-facebook"></i></div>
+                    <div class="platform-icon"><i class="fab fa-instagram"></i></div>
+                    <div class="platform-icon"><i class="fab fa-tiktok"></i></div>
+                    <div class="platform-icon"><i class="fab fa-twitter"></i></div>
+                    <div class="platform-icon"><i class="fas fa-plus"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download-section">
+        <div class="container">
+            <div class="download-card">
+                <h2>Paste Video URL</h2>
+                <div class="input-group">
+                    <input type="url" id="videoUrl" placeholder="https://www.youtube.com/watch?v=..." class="url-input">
+                    <button id="downloadBtn" class="download-btn" aria-label="download-btn">
+                        <i class="fas fa-download"></i>
+                        Download
+                    </button>
+                </div>
+                <p class="input-help">Paste the URL of any video you want to download</p>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state hidden">
+                <div class="spinner"></div>
+                <p>Analyzing video...</p>
+            </div>
+
+            <!-- Video Preview -->
+            <div id="videoPreview" class="video-preview hidden">
+                <div class="preview-card">
+                    <div class="video-info">
+                        <img id="videoThumbnail" src="" alt="Video Thumbnail" class="video-thumbnail">
+                        <div class="video-details">
+                            <h3 id="videoTitle">Video Title</h3>
+                            <p id="videoDuration">Duration: --:--</p>
+                            <p id="videoSize">Size: -- MB</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Quality Options -->
+                    <div class="quality-options">
+                        <h4>Select Quality</h4>
+                        <div class="quality-grid">
+                            <button class="quality-btn free" data-quality="144p" aria-label="quality-144p-btn">
+                                144p <span class="quality-label">Free</span>
+                            </button>
+                            <button class="quality-btn free" data-quality="360p" aria-label="quality-360p-btn">
+                                360p <span class="quality-label">Free</span>
+                            </button>
+                            <button class="quality-btn premium" data-quality="480p" aria-label="quality-480p-btn">
+                                480p <span class="quality-label">Premium</span>
+                            </button>
+                            <button class="quality-btn premium" data-quality="720p" aria-label="quality-720p-btn">
+                                720p <span class="quality-label">Premium</span>
+                            </button>
+                            <button class="quality-btn premium" data-quality="1080p" aria-label="quality-1080p-btn">
+                                1080p <span class="quality-label">Premium</span>
+                            </button>
+                        </div>
+                        <button id="finalDownloadBtn" class="final-download-btn" aria-label="download-btn">
+                            <i class="fas fa-download"></i>
+                            Download Selected Quality
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Premium Modal -->
+            <div id="premiumModal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>Premium Quality Required</h3>
+                    <p>480p, 720p and 1080p downloads require a premium subscription.</p>
+                    <div class="modal-actions">
+                        <a href="pricing.html" class="btn-premium">View Plans</a>
+                        <button class="btn-secondary" onclick="closePremiumModal()" aria-label="cancel-btn">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space -->
+    <section class="ad-section">
+        <div class="container">
+            <div class="ad-placeholder">
+                <!-- Monetag/Adsense Ad Space -->
+                <div class="ad-banner">
+                    <p>Advertisement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Video Genie?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Download videos in seconds with our optimized servers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>100% Secure</h3>
+                    <p>Your privacy is protected. No data stored on our servers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>All Devices</h3>
+                    <p>Works perfectly on desktop, tablet, and mobile devices</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Multiple Platforms</h3>
+                    <p>Support for YouTube, Facebook, Instagram, TikTok, and more</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Space -->
+    <section class="ad-section">
+        <div class="container">
+            <div class="ad-placeholder">
+                <!-- Monetag/Adsense Ad Space -->
+                <div class="ad-banner">
+                    <script type="text/javascript">
+                         // Your Monetag ad code here
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-img"><img src="logo-placeholder.png" alt="Video Genie Logo" class="logo-img"></div>
+                        <span class="logo-text">Video Genie</span>
+                    </div>
+                    <p>Download videos from any platform, fast and secure.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Download</a></li>
+                        <li><a href="converter.html">Convert</a></li>
+                        <li><a href="pricing.html">Premium</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="pricing.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Video Genie. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
