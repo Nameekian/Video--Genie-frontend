@@ -1,9 +1,7 @@
-// Video Genie - Main JavaScript Fi
+// Video Genie - Main JavaScript File
 const API_BASE_URL = 'https://nyt229-3000.csb.app';
-//const API_BASE_URL = window.API_BASE_URL || 'https://nyt229-3000.csb.app';
 const yearEl = document.getElementById("year");
-
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 class VideoGenie {
     constructor() {
@@ -13,8 +11,6 @@ class VideoGenie {
         this.currentVideoUrl = null;
         this.currentAudioUrl = null;
         this.conversionResult = null;
-        this.apiBase = API_BASE_URL;
-        //this.baseURL = 'https://codesandbox.io/p/sandbox/backend-nyt229';
         this.selectedQuality = null;
         this.uploadedVideoFile = null;
         this.uploadedAudioFile = null;
@@ -803,14 +799,14 @@ class VideoGenie {
 
     async processPayment() {
         const email = document.getElementById('customerEmail')?.value?.trim();
-        if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-        this.showNotification('Please enter a valid email', 'error');
-        return;
-    }
+         if (!email ) {
+            this.showNotification('Please fill in all required fields', 'error');
+            return;
+        }
 
         // Initialize Paystack payment
         const handler = PaystackPop.setup({
-            key: process.env.PAYSTACK_PUBLIC_KEY || 'paystack_key', // Replace with your actual Paystack public key
+            key: 'pk_live_1b299f608de3128820fa79b9d205fb1654f193da',//PAYSTACK_PUBLIC_KEY, // runtime-injected public key (window.__VIDEO_GENIE__.PAYSTACK_PUBLIC_KEY) or fallback
             email,
             amount: this.currentPlan.price * 100, // Amount in kobo
             currency: 'NGN',
@@ -829,9 +825,12 @@ class VideoGenie {
                     }
                 ]
             },
-        callback: (response) => this.handlePaymentSuccess(response),
-        // Handle payment success in callback
-        onClose: () => this.showNotification('Payment window closed', 'warning')
+            callback: (response) => {
+                this.handlePaymentSuccess(response);
+            },
+            onClose: () => {
+                this.showNotification('Payment window closed', 'warning');
+            }
         });
 
         handler.openIframe();
